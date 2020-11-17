@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @ticket.date %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @ticket.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @ticket.last_name %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @ticket.active %>
+</p>
+
+<p>
+  <strong>Event name:</strong>
+  <%= @ticket.event_name %>
+</p>
+
+<img src="<%= @qr.to_data_url %>" />
+
+
+<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
+<%= link_to 'Back', tickets_path %>
