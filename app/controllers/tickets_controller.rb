@@ -55,6 +55,9 @@ class TicketsController < ApplicationController
   # PATCH/PUT /tickets/1.json
   def update
     respond_to do |format|
+      if (@ticket.active == true && ticket_params["active"] == true) 
+        format.json { render json: { message: "Already activated", code: 403 }, status: :forbidden, location: @ticket }
+      end
       if @ticket.update(ticket_params)
         format.html { redirect_to @ticket, notice: 'Ticket was successfully updated.' }
         format.json { render :show, status: :ok, location: @ticket }
